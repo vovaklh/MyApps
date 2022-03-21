@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:device_apps/presentation/themes/adaptive_theme/adaptive_theme.dart';
 import 'package:device_apps/core/utils/extensions/build_context_ext.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
+
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void _changeTheme(BuildContext context) {
+    AdaptiveTheme.of(context).switchTheme();
   }
 
   @override
@@ -26,22 +23,14 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              context.localizations.hello,
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        child: Container(
+          height: 50,
+          width: 50,
+          color: context.color.test,
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: () => _changeTheme(context),
         child: const Icon(Icons.add),
       ),
     );
