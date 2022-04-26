@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:device_apps/presentation/themes/adaptive_theme/adaptive_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:device_apps/core/utils/extensions/build_context_ext.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   void _changeTheme(BuildContext context) {
-    AdaptiveTheme.of(context).switchTheme();
+    AdaptiveTheme.switchTheme(context);
   }
 
   @override
