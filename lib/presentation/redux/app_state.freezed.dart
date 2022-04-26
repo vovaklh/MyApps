@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppState {
-  ThemeState get themeState => throw _privateConstructorUsedError;
+  AppThemeMode get themeMode => throw _privateConstructorUsedError;
+  AppLocale get appLocale => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -27,9 +28,7 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({ThemeState themeState});
-
-  $ThemeStateCopyWith<$Res> get themeState;
+  $Res call({AppThemeMode themeMode, AppLocale appLocale});
 }
 
 /// @nodoc
@@ -42,21 +41,19 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? themeState = freezed,
+    Object? themeMode = freezed,
+    Object? appLocale = freezed,
   }) {
     return _then(_value.copyWith(
-      themeState: themeState == freezed
-          ? _value.themeState
-          : themeState // ignore: cast_nullable_to_non_nullable
-              as ThemeState,
+      themeMode: themeMode == freezed
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as AppThemeMode,
+      appLocale: appLocale == freezed
+          ? _value.appLocale
+          : appLocale // ignore: cast_nullable_to_non_nullable
+              as AppLocale,
     ));
-  }
-
-  @override
-  $ThemeStateCopyWith<$Res> get themeState {
-    return $ThemeStateCopyWith<$Res>(_value.themeState, (value) {
-      return _then(_value.copyWith(themeState: value));
-    });
   }
 }
 
@@ -65,10 +62,7 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({ThemeState themeState});
-
-  @override
-  $ThemeStateCopyWith<$Res> get themeState;
+  $Res call({AppThemeMode themeMode, AppLocale appLocale});
 }
 
 /// @nodoc
@@ -82,13 +76,18 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? themeState = freezed,
+    Object? themeMode = freezed,
+    Object? appLocale = freezed,
   }) {
     return _then(_AppState(
-      themeState: themeState == freezed
-          ? _value.themeState
-          : themeState // ignore: cast_nullable_to_non_nullable
-              as ThemeState,
+      themeMode: themeMode == freezed
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as AppThemeMode,
+      appLocale: appLocale == freezed
+          ? _value.appLocale
+          : appLocale // ignore: cast_nullable_to_non_nullable
+              as AppLocale,
     ));
   }
 }
@@ -96,14 +95,16 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({required this.themeState});
+  const _$_AppState({required this.themeMode, required this.appLocale});
 
   @override
-  final ThemeState themeState;
+  final AppThemeMode themeMode;
+  @override
+  final AppLocale appLocale;
 
   @override
   String toString() {
-    return 'AppState(themeState: $themeState)';
+    return 'AppState(themeMode: $themeMode, appLocale: $appLocale)';
   }
 
   @override
@@ -111,13 +112,15 @@ class _$_AppState implements _AppState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppState &&
-            const DeepCollectionEquality()
-                .equals(other.themeState, themeState));
+            const DeepCollectionEquality().equals(other.themeMode, themeMode) &&
+            const DeepCollectionEquality().equals(other.appLocale, appLocale));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(themeState));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(themeMode),
+      const DeepCollectionEquality().hash(appLocale));
 
   @JsonKey(ignore: true)
   @override
@@ -126,10 +129,14 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({required final ThemeState themeState}) = _$_AppState;
+  const factory _AppState(
+      {required final AppThemeMode themeMode,
+      required final AppLocale appLocale}) = _$_AppState;
 
   @override
-  ThemeState get themeState => throw _privateConstructorUsedError;
+  AppThemeMode get themeMode => throw _privateConstructorUsedError;
+  @override
+  AppLocale get appLocale => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

@@ -9,6 +9,6 @@ class InitThemeAction extends ReduxAction<AppState> {
   AppState reduce() {
     final themeMode =
         locator<SharedPrefs>().getThemeMode() ?? AppThemeMode.light;
-    return state.copyWith.themeState(themeMode: themeMode);
+    return state.copyWith(themeMode: themeMode);
   }
 }
