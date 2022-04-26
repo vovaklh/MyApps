@@ -8,6 +8,6 @@ class SetLightThemeAction extends ReduxAction<AppState> {
   @override
   Future<AppState> reduce() async {
     await locator<SharedPrefs>().setThemeMode(AppThemeMode.light);
-    return state.copyWith.themeState(themeMode: AppThemeMode.light);
+    return state.copyWith(themeMode: AppThemeMode.light);
   }
 }

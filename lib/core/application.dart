@@ -1,4 +1,5 @@
 import 'package:async_redux/async_redux.dart';
+import 'package:device_apps/l10n/app_locale.dart';
 import 'package:device_apps/presentation/redux/app_state.dart';
 import 'package:device_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
 import 'package:device_apps/presentation/themes/device_apps_theme.dart';
@@ -25,6 +26,7 @@ class Application extends StatelessWidget {
             builder: (context) {
               return MaterialApp(
                 title: 'Flutter Demo',
+                locale: vm.appLocale.locale,
                 supportedLocales: L10n.all,
                 localizationsDelegates: const [
                   AppLocalizations.delegate,
@@ -47,11 +49,18 @@ class _Factory extends VmFactory<AppState, Application> {
   _Factory(widget) : super(widget);
 
   @override
-  _ViewModel fromStore() => _ViewModel(themeMode: state.themeState.themeMode);
+  _ViewModel fromStore() => _ViewModel(
+        themeMode: state.themeMode,
+        appLocale: state.appLocale,
+      );
 }
 
 class _ViewModel extends Vm {
   final AppThemeMode themeMode;
+  final AppLocale appLocale;
 
-  _ViewModel({required this.themeMode}) : super(equals: [themeMode]);
+  _ViewModel({
+    required this.themeMode,
+    required this.appLocale,
+  }) : super(equals: [themeMode, appLocale]);
 }

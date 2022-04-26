@@ -1,6 +1,7 @@
+import 'package:device_apps/core/utils/extensions/build_context_ext.dart';
+import 'package:device_apps/l10n/locale_manager.dart';
 import 'package:device_apps/presentation/themes/adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:device_apps/core/utils/extensions/build_context_ext.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -12,8 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  void _changeTheme(BuildContext context) {
+  void _changeTheme() {
     AdaptiveTheme.switchTheme(context);
+  }
+
+  void _setRuLocale() {
+    LocaleManager.setRuLocale(context);
   }
 
   @override
@@ -22,16 +27,20 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Container(
-          height: 50,
-          width: 50,
-          color: context.color.test,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _changeTheme(context),
-        child: const Icon(Icons.add),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          TextButton(
+            onPressed: _changeTheme,
+            child: Text(context.localizations.switchTheme),
+          ),
+          const SizedBox(height: 20),
+          TextButton(
+            onPressed: _setRuLocale,
+            child: Text(context.localizations.switchLang),
+          ),
+        ],
       ),
     );
   }

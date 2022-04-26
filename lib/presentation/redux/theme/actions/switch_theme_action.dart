@@ -7,14 +7,14 @@ import 'package:device_apps/presentation/themes/adaptive_theme/app_theme_mode.da
 class SwitchThemeAction extends ReduxAction<AppState> {
   @override
   Future<AppState> reduce() async {
-    final currentThemeMode = state.themeState.themeMode;
+    final currentThemeMode = state.themeMode;
     switch (currentThemeMode) {
       case AppThemeMode.light:
         await locator<SharedPrefs>().setThemeMode(AppThemeMode.dark);
-        return state.copyWith.themeState(themeMode: AppThemeMode.dark);
+        return state.copyWith(themeMode: AppThemeMode.dark);
       case AppThemeMode.dark:
         await locator<SharedPrefs>().setThemeMode(AppThemeMode.light);
-        return state.copyWith.themeState(themeMode: AppThemeMode.light);
+        return state.copyWith(themeMode: AppThemeMode.light);
     }
   }
 }
