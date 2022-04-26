@@ -1,4 +1,0 @@
-enum AdaptiveThemeMode {
-  light,
-  dark,
-}

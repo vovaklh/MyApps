@@ -13,11 +13,19 @@ dependencies:
     sdk: flutter  
   cupertino_icons: ^1.0.2
   intl: ^0.17.0
+  async_redux: ^14.1.1
+  freezed_annotation: ^2.0.1
+  shared_preferences: ^2.0.13
+  get_it: ^7.2.0
+  injectable: ^1.5.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  freezed: ^2.0.2
+  build_runner: ^2.1.10
+  injectable_generator: ^1.5.3
 
 flutter:
   uses-material-design: true
