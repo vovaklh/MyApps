@@ -1,5 +1,5 @@
-import 'package:device_apps/data/datasources/local/shared_prefs.dart';
 import 'package:injectable/injectable.dart';
+import 'package:my_apps/data/datasources/local/shared_prefs.dart';
 
 @module
 abstract class StorageModule {

@@ -1,7 +1,7 @@
 part of '../light_theme.dart';
 
-class _LightDeviceAppsTextThemeData implements DeviceAppsTextThemeData {
-  const _LightDeviceAppsTextThemeData();
+class _LightAppTextThemeData implements AppTextThemeData {
+  const _LightAppTextThemeData();
 
   @override
   TextStyle get test => _bodyText1.copyWith(

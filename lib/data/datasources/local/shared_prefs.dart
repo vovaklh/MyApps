@@ -1,5 +1,5 @@
-import 'package:device_apps/l10n/app_locale.dart';
-import 'package:device_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
+import 'package:my_apps/l10n/app_locale.dart';
+import 'package:my_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
