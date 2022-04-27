@@ -1,6 +1,6 @@
-import 'package:device_apps/core/di/configuration.config.dart';
-import 'package:device_apps/core/di/locator.dart';
 import 'package:injectable/injectable.dart';
+import 'package:my_apps/core/di/configuration.config.dart';
+import 'package:my_apps/core/di/locator.dart';
 
 @InjectableInit(
   initializerName: r'$configureDependencies',

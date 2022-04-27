@@ -1,7 +1,7 @@
-import 'package:device_apps/core/utils/extensions/build_context_ext.dart';
-import 'package:device_apps/l10n/locale_manager.dart';
-import 'package:device_apps/presentation/themes/adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:my_apps/core/utils/extensions/build_context_ext.dart';
+import 'package:my_apps/l10n/locale_manager.dart';
+import 'package:my_apps/presentation/themes/adaptive_theme/adaptive_theme.dart';
 
 class HomePage extends StatefulWidget {
   final String title;

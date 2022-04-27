@@ -1,8 +1,8 @@
 import 'package:async_redux/async_redux.dart';
-import 'package:device_apps/core/di/locator.dart';
-import 'package:device_apps/data/datasources/local/shared_prefs.dart';
-import 'package:device_apps/presentation/redux/app_state.dart';
-import 'package:device_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
+import 'package:my_apps/core/di/locator.dart';
+import 'package:my_apps/data/datasources/local/shared_prefs.dart';
+import 'package:my_apps/presentation/redux/app_state.dart';
+import 'package:my_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
 
 class SetDarkThemeAction extends ReduxAction<AppState> {
   @override

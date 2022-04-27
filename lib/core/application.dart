@@ -1,13 +1,13 @@
 import 'package:async_redux/async_redux.dart';
-import 'package:device_apps/l10n/app_locale.dart';
-import 'package:device_apps/presentation/redux/app_state.dart';
-import 'package:device_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
-import 'package:device_apps/presentation/themes/device_apps_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:device_apps/l10n/l10n.dart';
-import 'package:device_apps/presentation/pages/home_page.dart';
+import 'package:my_apps/l10n/app_locale.dart';
+import 'package:my_apps/l10n/l10n.dart';
+import 'package:my_apps/presentation/pages/home_page.dart';
+import 'package:my_apps/presentation/redux/app_state.dart';
+import 'package:my_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
+import 'package:my_apps/presentation/themes/device_apps_theme.dart';
 
 class Application extends StatelessWidget {
   final Store<AppState> store;
