@@ -26,6 +26,7 @@ dev_dependencies:
   freezed: ^2.0.2
   build_runner: ^2.1.10
   injectable_generator: ^1.5.3
+  dart_code_metrics: ^4.14.0
 
 flutter:
   uses-material-design: true
