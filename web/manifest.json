@@ -1,6 +1,6 @@
 {
-    "name": "device_apps",
-    "short_name": "device_apps",
+    "name": "my_apps",
+    "short_name": "my_apps",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

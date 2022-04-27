@@ -19,8 +19,7 @@ class AppTheme extends InheritedWidget {
     return context.dependOnInheritedWidgetOfExactType<AppTheme>()?.theme;
   }
 
-  static AppTextThemeData text(BuildContext context) =>
-      of(context).textTheme;
+  static AppTextThemeData text(BuildContext context) => of(context).textTheme;
   static AppColorThemeData color(BuildContext context) =>
       of(context).colorTheme;
 
