@@ -1,7 +1,7 @@
 part of '../light_theme.dart';
 
-class _LightDeviceAppsColorThemeData implements DeviceAppsColorThemeData {
-  const _LightDeviceAppsColorThemeData();
+class _LightAppColorThemeData implements AppColorThemeData {
+  const _LightAppColorThemeData();
 
   @override
   Color get test => _AppColors.black;

@@ -1,7 +1,7 @@
 part of '../dark_theme.dart';
 
-class _DarkDeviceAppsColorThemeData implements DeviceAppsColorThemeData {
-  const _DarkDeviceAppsColorThemeData();
+class _DarkAppColorThemeData implements AppColorThemeData {
+  const _DarkAppColorThemeData();
 
   @override
   Color get test => _AppColors.white;

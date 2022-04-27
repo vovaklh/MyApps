@@ -7,7 +7,7 @@ import 'package:my_apps/l10n/l10n.dart';
 import 'package:my_apps/presentation/pages/home_page.dart';
 import 'package:my_apps/presentation/redux/app_state.dart';
 import 'package:my_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
-import 'package:my_apps/presentation/themes/device_apps_theme.dart';
+import 'package:my_apps/presentation/themes/app_theme.dart';
 
 class Application extends StatelessWidget {
   final Store<AppState> store;
@@ -20,7 +20,7 @@ class Application extends StatelessWidget {
       store: store,
       child: StoreConnector<AppState, _ViewModel>(
         vm: () => _Factory(this),
-        builder: (BuildContext context, _ViewModel vm) => DeviceAppsTheme(
+        builder: (BuildContext context, _ViewModel vm) => AppTheme(
           theme: vm.themeMode.theme,
           child: Builder(
             builder: (context) {
@@ -34,7 +34,7 @@ class Application extends StatelessWidget {
                   GlobalCupertinoLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                 ],
-                theme: DeviceAppsTheme.of(context).themeData,
+                theme: AppTheme.of(context).themeData,
                 home: const HomePage(title: 'Flutter Demo Home Page'),
               );
             },

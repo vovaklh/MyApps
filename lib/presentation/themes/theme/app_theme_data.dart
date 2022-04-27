@@ -1,19 +1,19 @@
-part of '../device_apps_theme.dart';
+part of '../app_theme.dart';
 
-class DeviceAppsThemeData {
+class AppThemeData {
   final ThemeData themeData;
 
   /// Should not be used directly.
   /// Please, use `DeviceAppsTheme.text(context)`
   @protected
-  final DeviceAppsTextThemeData textTheme;
+  final AppTextThemeData textTheme;
 
   /// Should not be used directly.
   /// Please, use `DeviceAppsTheme.color(context)`
   @protected
-  final DeviceAppsColorThemeData colorTheme;
+  final AppColorThemeData colorTheme;
 
-  DeviceAppsThemeData({
+  AppThemeData({
     required this.themeData,
     required this.textTheme,
     required this.colorTheme,

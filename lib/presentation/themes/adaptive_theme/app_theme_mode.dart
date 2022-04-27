@@ -1,5 +1,5 @@
 import 'package:my_apps/presentation/themes/dark/dark_theme.dart';
-import 'package:my_apps/presentation/themes/device_apps_theme.dart';
+import 'package:my_apps/presentation/themes/app_theme.dart';
 import 'package:my_apps/presentation/themes/light/light_theme.dart';
 
 enum AppThemeMode {
@@ -8,12 +8,12 @@ enum AppThemeMode {
 }
 
 extension AppThemeModeExt on AppThemeMode {
-  DeviceAppsThemeData get theme {
+  AppThemeData get theme {
     switch (this) {
       case AppThemeMode.light:
-        return LightDeviceAppsThemeData();
+        return LightAppThemeData();
       case AppThemeMode.dark:
-        return DarkDeviceAppsThemeData();
+        return DarkAppThemeData();
     }
   }
 }
