@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_apps/core/utils/extensions/build_context_ext.dart';
-import 'package:my_apps/l10n/locale_manager.dart';
-import 'package:my_apps/presentation/themes/adaptive_theme/adaptive_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_apps/core/di/locator.dart';
+import 'package:my_apps/presentation/blocs/apps/apps_bloc.dart';
+import 'package:my_apps/presentation/widgets/loader.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -13,34 +14,59 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  void _changeTheme() {
-    AdaptiveTheme.switchTheme(context);
-  }
+  static const int _pages = 2;
 
-  void _setRuLocale() {
-    LocaleManager.setRuLocale(context);
+  final _bloc = locator<AppsBloc>();
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc.add(const GetAppsEvent());
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          TextButton(
-            onPressed: _changeTheme,
-            child: Text(context.localizations.switchTheme),
+    return DefaultTabController(
+      length: _pages,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+          bottom: const TabBar(
+            isScrollable: true,
+            tabs: [
+              Tab(
+                text: 'Installed apps',
+              ),
+              Tab(text: 'System apps'),
+            ],
           ),
-          const SizedBox(height: 20),
-          TextButton(
-            onPressed: _setRuLocale,
-            child: Text(context.localizations.switchLang),
-          ),
-        ],
+        ),
+        body: TabBarView(
+          children: [
+            BlocBuilder<AppsBloc, AppsState>(
+              bloc: _bloc,
+              builder: (_, state) {
+                return state.maybeWhen(
+                  success: (installedApps, systemApps) => Text(
+                    installedApps.length.toString(),
+                  ),
+                  orElse: () => const Loader(),
+                );
+              },
+            ),
+            BlocBuilder<AppsBloc, AppsState>(
+              bloc: _bloc,
+              builder: (_, state) {
+                return state.maybeWhen(
+                  success: (installedApps, systemApps) => Text(
+                    systemApps.length.toString(),
+                  ),
+                  orElse: () => const Loader(),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -18,6 +18,8 @@ dependencies:
   shared_preferences: ^2.0.13
   get_it: ^7.2.0
   injectable: ^1.5.3
+  device_apps: ^2.2.0
+  flutter_bloc: ^8.0.1
 
 dev_dependencies:
   flutter_test:
