@@ -38,11 +38,11 @@ jobs:
         run: flutter doctor -v
       - name: Flutter Analyze
         run: flutter analyze
-      - name: Dart code metrics
-        uses: dart-code-checker/dart-code-metrics-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          check_unused_files: false
+      # - name: Dart code metrics
+      #   uses: dart-code-checker/dart-code-metrics-action@v1
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     check_unused_files: false
       - name: Check Formatting
         run: flutter format --set-exit-if-changed lib
   build_android:
