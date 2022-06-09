@@ -6,7 +6,7 @@ class AppsState with _$AppsState {
   const factory AppsState.loading() = _AppsLoadingState;
   const factory AppsState.error(Object exception) = _AppsErrorState;
   const factory AppsState.success(
-    List<Application> installedApps,
-    List<Application> systemApps,
+    List<ApplicationWrapper> installedApps,
+    List<ApplicationWrapper> systemApps,
   ) = _AppsSuccessState;
 }

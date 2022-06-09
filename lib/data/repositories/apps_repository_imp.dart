@@ -1,15 +1,18 @@
+import 'dart:io';
+
 import 'package:device_apps/device_apps.dart';
 import 'package:my_apps/domain/repositories/apps_repository.dart';
+import 'package:my_apps/domain/wrappers/application_wrapper.dart';
 
 class AppsRepositoryImp implements AppsRepository {
-  final List<Application> _installedApps = [];
-  final List<Application> _systemApps = [];
+  final List<ApplicationWrapper> _installedApps = [];
+  final List<ApplicationWrapper> _systemApps = [];
 
   final Stream<ApplicationEvent> appChangesStream =
       DeviceApps.listenToAppsChanges();
 
   @override
-  Future<List<Application>> getSystemApps() async {
+  Future<List<ApplicationWrapper>> getSystemApps() async {
     if (_systemApps.isEmpty) {
       final apps = await DeviceApps.getInstalledApplications(
         includeAppIcons: true,
@@ -17,16 +20,16 @@ class AppsRepositoryImp implements AppsRepository {
         onlyAppsWithLaunchIntent: true,
       );
       final systemApps = apps.where((app) => app.systemApp).toList();
-      _systemApps.addAll(systemApps);
+      _systemApps.addAll(systemApps.toWrappers());
 
-      return systemApps;
+      return _systemApps;
     }
 
     return _systemApps;
   }
 
   @override
-  Future<List<Application>> getInstalledApps() async {
+  Future<List<ApplicationWrapper>> getInstalledApps() async {
     if (_installedApps.isEmpty) {
       final installedApps = await DeviceApps.getInstalledApplications(
         includeAppIcons: true,
@@ -34,9 +37,9 @@ class AppsRepositoryImp implements AppsRepository {
         onlyAppsWithLaunchIntent: true,
       );
 
-      _installedApps.addAll(installedApps);
+      _installedApps.addAll(installedApps.toWrappers());
 
-      return installedApps;
+      return _installedApps;
     }
 
     return _installedApps;
@@ -48,5 +51,14 @@ class AppsRepositoryImp implements AppsRepository {
 
     await getSystemApps();
     await getSystemApps();
+  }
+}
+
+extension ApplicationExt on List<Application> {
+  List<ApplicationWrapper> toWrappers() {
+    return map((app) => ApplicationWrapper(
+          application: app,
+          size: File(app.apkFilePath).lengthSync(),
+        )).toList();
   }
 }

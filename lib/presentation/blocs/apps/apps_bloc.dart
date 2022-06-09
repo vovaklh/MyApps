@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_apps/domain/repositories/apps_repository.dart';
-import 'package:device_apps/device_apps.dart';
+import 'package:my_apps/domain/wrappers/application_wrapper.dart';
 
 part 'apps_event.dart';
 part 'apps_state.dart';

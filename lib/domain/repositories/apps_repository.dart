@@ -1,7 +1,7 @@
-import 'package:device_apps/device_apps.dart';
+import 'package:my_apps/domain/wrappers/application_wrapper.dart';
 
 abstract class AppsRepository {
-  Future<List<Application>> getSystemApps();
+  Future<List<ApplicationWrapper>> getSystemApps();
 
-  Future<List<Application>> getInstalledApps();
+  Future<List<ApplicationWrapper>> getInstalledApps();
 }

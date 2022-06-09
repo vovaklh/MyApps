@@ -170,8 +170,8 @@ mixin _$AppsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Object exception) error,
-    required TResult Function(
-            List<Application> installedApps, List<Application> systemApps)
+    required TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)
         success,
   }) =>
       throw _privateConstructorUsedError;
@@ -180,8 +180,8 @@ mixin _$AppsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
   }) =>
       throw _privateConstructorUsedError;
@@ -190,8 +190,8 @@ mixin _$AppsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
     required TResult orElse(),
   }) =>
@@ -282,8 +282,8 @@ class _$_AppsInitialState implements _AppsInitialState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Object exception) error,
-    required TResult Function(
-            List<Application> installedApps, List<Application> systemApps)
+    required TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)
         success,
   }) {
     return initial();
@@ -295,8 +295,8 @@ class _$_AppsInitialState implements _AppsInitialState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
   }) {
     return initial?.call();
@@ -308,8 +308,8 @@ class _$_AppsInitialState implements _AppsInitialState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
     required TResult orElse(),
   }) {
@@ -405,8 +405,8 @@ class _$_AppsLoadingState implements _AppsLoadingState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Object exception) error,
-    required TResult Function(
-            List<Application> installedApps, List<Application> systemApps)
+    required TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)
         success,
   }) {
     return loading();
@@ -418,8 +418,8 @@ class _$_AppsLoadingState implements _AppsLoadingState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
   }) {
     return loading?.call();
@@ -431,8 +431,8 @@ class _$_AppsLoadingState implements _AppsLoadingState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
     required TResult orElse(),
   }) {
@@ -551,8 +551,8 @@ class _$_AppsErrorState implements _AppsErrorState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Object exception) error,
-    required TResult Function(
-            List<Application> installedApps, List<Application> systemApps)
+    required TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)
         success,
   }) {
     return error(exception);
@@ -564,8 +564,8 @@ class _$_AppsErrorState implements _AppsErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
   }) {
     return error?.call(exception);
@@ -577,8 +577,8 @@ class _$_AppsErrorState implements _AppsErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
     required TResult orElse(),
   }) {
@@ -640,7 +640,9 @@ abstract class _$AppsSuccessStateCopyWith<$Res> {
   factory _$AppsSuccessStateCopyWith(
           _AppsSuccessState value, $Res Function(_AppsSuccessState) then) =
       __$AppsSuccessStateCopyWithImpl<$Res>;
-  $Res call({List<Application> installedApps, List<Application> systemApps});
+  $Res call(
+      {List<ApplicationWrapper> installedApps,
+      List<ApplicationWrapper> systemApps});
 }
 
 /// @nodoc
@@ -663,11 +665,11 @@ class __$AppsSuccessStateCopyWithImpl<$Res>
       installedApps == freezed
           ? _value.installedApps
           : installedApps // ignore: cast_nullable_to_non_nullable
-              as List<Application>,
+              as List<ApplicationWrapper>,
       systemApps == freezed
           ? _value.systemApps
           : systemApps // ignore: cast_nullable_to_non_nullable
-              as List<Application>,
+              as List<ApplicationWrapper>,
     ));
   }
 }
@@ -675,21 +677,21 @@ class __$AppsSuccessStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppsSuccessState implements _AppsSuccessState {
-  const _$_AppsSuccessState(
-      final List<Application> installedApps, final List<Application> systemApps)
+  const _$_AppsSuccessState(final List<ApplicationWrapper> installedApps,
+      final List<ApplicationWrapper> systemApps)
       : _installedApps = installedApps,
         _systemApps = systemApps;
 
-  final List<Application> _installedApps;
+  final List<ApplicationWrapper> _installedApps;
   @override
-  List<Application> get installedApps {
+  List<ApplicationWrapper> get installedApps {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_installedApps);
   }
 
-  final List<Application> _systemApps;
+  final List<ApplicationWrapper> _systemApps;
   @override
-  List<Application> get systemApps {
+  List<ApplicationWrapper> get systemApps {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_systemApps);
   }
@@ -727,8 +729,8 @@ class _$_AppsSuccessState implements _AppsSuccessState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Object exception) error,
-    required TResult Function(
-            List<Application> installedApps, List<Application> systemApps)
+    required TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)
         success,
   }) {
     return success(installedApps, systemApps);
@@ -740,8 +742,8 @@ class _$_AppsSuccessState implements _AppsSuccessState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
   }) {
     return success?.call(installedApps, systemApps);
@@ -753,8 +755,8 @@ class _$_AppsSuccessState implements _AppsSuccessState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Object exception)? error,
-    TResult Function(
-            List<Application> installedApps, List<Application> systemApps)?
+    TResult Function(List<ApplicationWrapper> installedApps,
+            List<ApplicationWrapper> systemApps)?
         success,
     required TResult orElse(),
   }) {
@@ -803,11 +805,12 @@ class _$_AppsSuccessState implements _AppsSuccessState {
 }
 
 abstract class _AppsSuccessState implements AppsState {
-  const factory _AppsSuccessState(final List<Application> installedApps,
-      final List<Application> systemApps) = _$_AppsSuccessState;
+  const factory _AppsSuccessState(final List<ApplicationWrapper> installedApps,
+      final List<ApplicationWrapper> systemApps) = _$_AppsSuccessState;
 
-  List<Application> get installedApps => throw _privateConstructorUsedError;
-  List<Application> get systemApps => throw _privateConstructorUsedError;
+  List<ApplicationWrapper> get installedApps =>
+      throw _privateConstructorUsedError;
+  List<ApplicationWrapper> get systemApps => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AppsSuccessStateCopyWith<_AppsSuccessState> get copyWith =>
       throw _privateConstructorUsedError;
