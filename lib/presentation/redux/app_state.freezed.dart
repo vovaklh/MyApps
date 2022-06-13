@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppState {
-  AppThemeMode get themeMode => throw _privateConstructorUsedError;
+  ThemeMode get themeMode => throw _privateConstructorUsedError;
   AppLocale get appLocale => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -28,7 +28,7 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({AppThemeMode themeMode, AppLocale appLocale});
+  $Res call({ThemeMode themeMode, AppLocale appLocale});
 }
 
 /// @nodoc
@@ -48,7 +48,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
       themeMode: themeMode == freezed
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
-              as AppThemeMode,
+              as ThemeMode,
       appLocale: appLocale == freezed
           ? _value.appLocale
           : appLocale // ignore: cast_nullable_to_non_nullable
@@ -62,7 +62,7 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({AppThemeMode themeMode, AppLocale appLocale});
+  $Res call({ThemeMode themeMode, AppLocale appLocale});
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
       themeMode: themeMode == freezed
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
-              as AppThemeMode,
+              as ThemeMode,
       appLocale: appLocale == freezed
           ? _value.appLocale
           : appLocale // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ class _$_AppState implements _AppState {
   const _$_AppState({required this.themeMode, required this.appLocale});
 
   @override
-  final AppThemeMode themeMode;
+  final ThemeMode themeMode;
   @override
   final AppLocale appLocale;
 
@@ -130,11 +130,11 @@ class _$_AppState implements _AppState {
 
 abstract class _AppState implements AppState {
   const factory _AppState(
-      {required final AppThemeMode themeMode,
+      {required final ThemeMode themeMode,
       required final AppLocale appLocale}) = _$_AppState;
 
   @override
-  AppThemeMode get themeMode => throw _privateConstructorUsedError;
+  ThemeMode get themeMode => throw _privateConstructorUsedError;
   @override
   AppLocale get appLocale => throw _privateConstructorUsedError;
   @override

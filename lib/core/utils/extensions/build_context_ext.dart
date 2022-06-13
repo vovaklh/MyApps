@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:my_apps/presentation/themes/app_theme.dart';
+import 'package:my_apps/presentation/themes/theme.dart';
 
 extension BuildContextExt on BuildContext {
   AppLocalizations get localizations => AppLocalizations.of(this)!;
 
-  AppTextThemeData get text => AppTheme.text(this);
+  ThemeTextStyles get text => Theme.of(this).extension<ThemeTextStyles>()!;
 
-  AppColorThemeData get color => AppTheme.color(this);
+  ThemeColors get color => Theme.of(this).extension<ThemeColors>()!;
 }

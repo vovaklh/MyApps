@@ -62,8 +62,6 @@ dart_code_metrics:
         severity: warning
     - no-empty-block:
         severity: warning
-    - no-magic-number:
-        severity: warning
     - no-object-declaration:
         severity: warning
     - prefer-first:

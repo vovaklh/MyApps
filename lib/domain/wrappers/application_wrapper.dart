@@ -1,7 +1,7 @@
 import 'package:device_apps/device_apps.dart';
 
 class ApplicationWrapper {
-  final Application application;
+  final ApplicationWithIcon application;
   final int size;
 
   ApplicationWrapper({
