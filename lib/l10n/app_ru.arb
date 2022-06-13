@@ -5,5 +5,6 @@
     "switchLang": "Сменить язык",
     "installedApps": "Установленные приложения",
     "systemApps": "Системные приложения",
-    "megabytes": "Мб"
+    "megabytes": "Мб",
+    "searchHint": "Поиск..."
 }

@@ -5,12 +5,14 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
   final Color appContainerShadow;
   final Color selectedLabel;
   final Color unselectedLabel;
+  final Color coursorColor;
 
   const ThemeColors({
     required this.appContainerBackground,
     required this.appContainerShadow,
     required this.selectedLabel,
     required this.unselectedLabel,
+    required this.coursorColor,
   });
 
   @override
@@ -19,6 +21,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? appContainerShadow,
     Color? selectedLabel,
     Color? unselectedLabel,
+    Color? coursorColor,
   }) {
     return ThemeColors(
       appContainerBackground:
@@ -26,6 +29,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       appContainerShadow: appContainerShadow ?? this.appContainerShadow,
       selectedLabel: selectedLabel ?? this.selectedLabel,
       unselectedLabel: unselectedLabel ?? this.unselectedLabel,
+      coursorColor: coursorColor ?? this.coursorColor,
     );
   }
 
@@ -45,6 +49,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
           Color.lerp(appContainerShadow, other.appContainerShadow, t)!,
       selectedLabel: Color.lerp(selectedLabel, other.selectedLabel, t)!,
       unselectedLabel: Color.lerp(unselectedLabel, other.unselectedLabel, t)!,
+      coursorColor: Color.lerp(coursorColor, other.coursorColor, t)!,
     );
   }
 
@@ -53,6 +58,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     appContainerShadow: AppColors.grey.withOpacity(0.5),
     selectedLabel: AppColors.darkestGrey,
     unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
+    coursorColor: AppColors.pink,
   );
 
   // TODO : Change later
@@ -61,5 +67,6 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     appContainerShadow: AppColors.grey.withOpacity(0.5),
     selectedLabel: AppColors.darkestGrey,
     unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
+    coursorColor: AppColors.pink,
   );
 }

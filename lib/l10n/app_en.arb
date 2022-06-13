@@ -5,5 +5,6 @@
     "switchLang": "Switch Language",
     "installedApps": "Installed Apps",
     "systemApps": "System Apps",
-    "megabytes": "MB"
+    "megabytes": "MB",
+    "searchHint": "Search..."
 }
