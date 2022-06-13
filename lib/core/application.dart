@@ -6,8 +6,7 @@ import 'package:my_apps/l10n/app_locale.dart';
 import 'package:my_apps/l10n/l10n.dart';
 import 'package:my_apps/presentation/pages/home_page.dart';
 import 'package:my_apps/presentation/redux/app_state.dart';
-import 'package:my_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
-import 'package:my_apps/presentation/themes/app_theme.dart';
+import 'package:my_apps/presentation/themes/theme.dart';
 
 class Application extends StatelessWidget {
   final Store<AppState> store;
@@ -20,25 +19,19 @@ class Application extends StatelessWidget {
       store: store,
       child: StoreConnector<AppState, _ViewModel>(
         vm: () => _Factory(this),
-        builder: (BuildContext context, _ViewModel vm) => AppTheme(
-          theme: vm.themeMode.theme,
-          child: Builder(
-            builder: (context) {
-              return MaterialApp(
-                title: 'Flutter Demo',
-                locale: vm.appLocale.locale,
-                supportedLocales: L10n.all,
-                localizationsDelegates: const [
-                  AppLocalizations.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                ],
-                theme: AppTheme.of(context).themeData,
-                home: const HomePage(title: 'Flutter Demo Home Page'),
-              );
-            },
-          ),
+        builder: (BuildContext context, _ViewModel vm) => MaterialApp(
+          locale: vm.appLocale.locale,
+          supportedLocales: L10n.all,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          theme: createLightTheme(),
+          darkTheme: createDarkTheme(),
+          themeMode: vm.themeMode,
+          home: const HomePage(),
         ),
       ),
     );
@@ -56,7 +49,7 @@ class _Factory extends VmFactory<AppState, Application> {
 }
 
 class _ViewModel extends Vm {
-  final AppThemeMode themeMode;
+  final ThemeMode themeMode;
   final AppLocale appLocale;
 
   _ViewModel({

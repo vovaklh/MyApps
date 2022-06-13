@@ -4,7 +4,7 @@ import 'package:my_apps/presentation/redux/theme/actions/set_dark_theme_action.d
 import 'package:my_apps/presentation/redux/theme/actions/set_light_theme_action.dart';
 import 'package:my_apps/presentation/redux/theme/actions/switch_theme_action.dart';
 
-abstract class AdaptiveTheme {
+abstract class ThemeManager {
   static void setLightTheme(BuildContext context) {
     StoreProvider.dispatch(context, SetLightThemeAction());
   }

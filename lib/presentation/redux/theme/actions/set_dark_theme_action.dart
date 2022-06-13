@@ -1,13 +1,13 @@
 import 'package:async_redux/async_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:my_apps/core/di/locator.dart';
 import 'package:my_apps/data/datasources/local/shared_prefs.dart';
 import 'package:my_apps/presentation/redux/app_state.dart';
-import 'package:my_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
 
 class SetDarkThemeAction extends ReduxAction<AppState> {
   @override
   Future<AppState> reduce() async {
-    await locator<SharedPrefs>().setThemeMode(AppThemeMode.dark);
-    return state.copyWith(themeMode: AppThemeMode.dark);
+    await locator<SharedPrefs>().setThemeMode(ThemeMode.dark);
+    return state.copyWith(themeMode: ThemeMode.dark);
   }
 }

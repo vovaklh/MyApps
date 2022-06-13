@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:my_apps/l10n/app_locale.dart';
-import 'package:my_apps/presentation/themes/adaptive_theme/app_theme_mode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
@@ -12,12 +12,12 @@ class SharedPrefs {
     _preferences = await SharedPreferences.getInstance();
   }
 
-  Future<bool> setThemeMode(AppThemeMode mode) async =>
+  Future<bool> setThemeMode(ThemeMode mode) async =>
       _preferences.setString(_themeModeKey, mode.name);
-  AppThemeMode? getThemeMode() {
+  ThemeMode? getThemeMode() {
     final String? value = _preferences.getString(_themeModeKey);
     return value != null
-        ? AppThemeMode.values.firstWhere((element) => element.name == value)
+        ? ThemeMode.values.firstWhere((element) => element.name == value)
         : null;
   }
 

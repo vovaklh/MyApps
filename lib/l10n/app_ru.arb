@@ -1,5 +1,9 @@
 {
     "hello": "Привет",
+    "myApps": "Мои приложения",
     "switchTheme": "Сменить тему",
-    "switchLang": "Сменить язык"
+    "switchLang": "Сменить язык",
+    "installedApps": "Установленные приложения",
+    "systemApps": "Системные приложения",
+    "megabytes": "Мб"
 }

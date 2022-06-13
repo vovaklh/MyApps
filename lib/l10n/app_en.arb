@@ -1,5 +1,9 @@
 {
     "hello": "Hello",
+    "myApps": "My Apps",
     "switchTheme": "Switch Theme",
-    "switchLang": "Switch Language"
+    "switchLang": "Switch Language",
+    "installedApps": "Installed Apps",
+    "systemApps": "System Apps",
+    "megabytes": "MB"
 }

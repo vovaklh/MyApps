@@ -20,7 +20,9 @@ class AppsRepositoryImp implements AppsRepository {
         onlyAppsWithLaunchIntent: true,
       );
       final systemApps = apps.where((app) => app.systemApp).toList();
-      _systemApps.addAll(systemApps.toWrappers());
+      final castedList = systemApps.cast<ApplicationWithIcon>();
+
+      _systemApps.addAll(castedList.toWrappers());
 
       return _systemApps;
     }
@@ -37,7 +39,8 @@ class AppsRepositoryImp implements AppsRepository {
         onlyAppsWithLaunchIntent: true,
       );
 
-      _installedApps.addAll(installedApps.toWrappers());
+      final castedList = installedApps.cast<ApplicationWithIcon>();
+      _installedApps.addAll(castedList.toWrappers());
 
       return _installedApps;
     }
@@ -54,7 +57,7 @@ class AppsRepositoryImp implements AppsRepository {
   }
 }
 
-extension ApplicationExt on List<Application> {
+extension ApplicationExt on List<ApplicationWithIcon> {
   List<ApplicationWrapper> toWrappers() {
     return map((app) => ApplicationWrapper(
           application: app,
