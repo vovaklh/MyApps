@@ -5,12 +5,16 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
   final TextStyle appTitle;
   final TextStyle appDescription;
   final TextStyle labelStyle;
+  final TextStyle searchHint;
+  final TextStyle searchInput;
 
   ThemeTextStyles({
     required this.appBarTitle,
     required this.appTitle,
     required this.appDescription,
     required this.labelStyle,
+    required this.searchHint,
+    required this.searchInput,
   });
 
   @override
@@ -19,12 +23,16 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     TextStyle? appTitle,
     TextStyle? appDescription,
     TextStyle? labelStyle,
+    TextStyle? searchHint,
+    TextStyle? searchInput,
   }) {
     return ThemeTextStyles(
       appBarTitle: appBarTitle ?? this.appBarTitle,
       appTitle: appTitle ?? this.appTitle,
       appDescription: appDescription ?? this.appDescription,
       labelStyle: labelStyle ?? this.labelStyle,
+      searchHint: searchHint ?? this.searchHint,
+      searchInput: searchInput ?? this.searchInput,
     );
   }
 
@@ -42,6 +50,8 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
       appTitle: TextStyle.lerp(appTitle, other.appTitle, t)!,
       appDescription: TextStyle.lerp(appDescription, other.appDescription, t)!,
       labelStyle: TextStyle.lerp(labelStyle, other.labelStyle, t)!,
+      searchHint: TextStyle.lerp(searchHint, other.searchHint, t)!,
+      searchInput: TextStyle.lerp(searchInput, other.searchInput, t)!,
     );
   }
 
@@ -62,6 +72,13 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     labelStyle: headline1.copyWith(
       fontWeight: FontWeight.w500,
     ),
+    searchHint: headline1.copyWith(
+      color: AppColors.white,
+      fontSize: 18,
+    ),
+    searchInput: headline1.copyWith(
+      fontSize: 18,
+    ),
   );
 
   // TODO : Change later
@@ -81,6 +98,13 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     ),
     labelStyle: headline1.copyWith(
       fontWeight: FontWeight.w500,
+    ),
+    searchHint: headline1.copyWith(
+      color: AppColors.white,
+      fontSize: 18,
+    ),
+    searchInput: headline1.copyWith(
+      fontSize: 18,
     ),
   );
 }

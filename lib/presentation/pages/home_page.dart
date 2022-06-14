@@ -20,9 +20,22 @@ class _HomePageState extends State<HomePage> {
 
   final _bloc = locator<AppsBloc>();
 
+  bool _isSearching = false;
+
   @override
   void initState() {
     super.initState();
+    _bloc.add(const GetAppsEvent());
+  }
+
+  void _onSearch(String query) => _bloc.add(SearchEvent(query));
+
+  void _onSearchOpen() => setState(() => _isSearching = true);
+
+  void _onSearchClose() {
+    setState(() {
+      _isSearching = false;
+    });
     _bloc.add(const GetAppsEvent());
   }
 
@@ -32,60 +45,113 @@ class _HomePageState extends State<HomePage> {
       length: _pages,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            context.localizations.myApps,
-            style: context.text.appBarTitle,
-          ),
-          bottom: TabBar(
-            isScrollable: true,
-            labelPadding: const EdgeInsets.symmetric(horizontal: 20),
-            labelColor: context.color.selectedLabel,
-            unselectedLabelColor: context.color.unselectedLabel,
-            labelStyle: context.text.labelStyle,
-            tabs: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Icon(Icons.download_rounded),
-                  const SizedBox(width: 10),
-                  Text(context.localizations.installedApps.toUpperCase()),
-                ],
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.apps),
-                  const SizedBox(width: 10),
-                  Text(context.localizations.systemApps.toUpperCase()),
-                ],
-              ),
-            ],
-          ),
+          title: _buildTitle(),
+          leading: _buildLeading(),
+          actions: _buildActions(),
+          bottom: _buildBottom(),
         ),
-        body: TabBarView(
+        body: _buildBody(),
+      ),
+    );
+  }
+
+  Widget _buildLeading() {
+    if (_isSearching) {
+      return IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: _onSearchClose,
+      );
+    }
+    return const SizedBox();
+  }
+
+  Widget _buildTitle() {
+    if (_isSearching) {
+      return TextField(
+        decoration: InputDecoration(
+          hintText: context.localizations.searchHint,
+          hintStyle: context.text.searchHint,
+          border: InputBorder.none,
+        ),
+        autofocus: true,
+        cursorColor: context.color.coursorColor,
+        style: context.text.searchInput,
+        onChanged: _onSearch,
+      );
+    }
+    return Text(
+      context.localizations.myApps,
+      style: context.text.appBarTitle,
+    );
+  }
+
+  List<Widget> _buildActions() {
+    return [
+      if (!_isSearching)
+        IconButton(
+          icon: const Icon(Icons.search),
+          onPressed: _onSearchOpen,
+        ),
+      IconButton(
+        icon: const Icon(Icons.sort),
+        onPressed: () {},
+      ),
+      IconButton(
+        icon: const Icon(Icons.settings),
+        onPressed: () {},
+      ),
+    ];
+  }
+
+  PreferredSizeWidget _buildBottom() {
+    return TabBar(
+      isScrollable: true,
+      labelPadding: const EdgeInsets.symmetric(horizontal: 20),
+      labelColor: context.color.selectedLabel,
+      unselectedLabelColor: context.color.unselectedLabel,
+      labelStyle: context.text.labelStyle,
+      tabs: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            BlocBuilder<AppsBloc, AppsState>(
-              bloc: _bloc,
-              builder: (_, state) {
-                return state.maybeWhen(
-                  success: (installedApps, systemApps) =>
-                      _buildApps(installedApps),
-                  orElse: () => const Loader(),
-                );
-              },
-            ),
-            BlocBuilder<AppsBloc, AppsState>(
-              bloc: _bloc,
-              builder: (_, state) {
-                return state.maybeWhen(
-                  success: (installedApps, systemApps) =>
-                      _buildApps(systemApps),
-                  orElse: () => const Loader(),
-                );
-              },
-            ),
+            const Icon(Icons.download_rounded),
+            const SizedBox(width: 10),
+            Text(context.localizations.installedApps.toUpperCase()),
           ],
         ),
-      ),
+        Row(
+          children: [
+            const Icon(Icons.apps),
+            const SizedBox(width: 10),
+            Text(context.localizations.systemApps.toUpperCase()),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBody() {
+    return TabBarView(
+      children: [
+        BlocBuilder<AppsBloc, AppsState>(
+          bloc: _bloc,
+          builder: (_, state) {
+            return state.maybeWhen(
+              success: (installedApps, systemApps) => _buildApps(installedApps),
+              orElse: () => const Loader(),
+            );
+          },
+        ),
+        BlocBuilder<AppsBloc, AppsState>(
+          bloc: _bloc,
+          builder: (_, state) {
+            return state.maybeWhen(
+              success: (installedApps, systemApps) => _buildApps(systemApps),
+              orElse: () => const Loader(),
+            );
+          },
+        ),
+      ],
     );
   }
 

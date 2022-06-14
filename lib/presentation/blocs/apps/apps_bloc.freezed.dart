@@ -19,32 +19,38 @@ mixin _$AppsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getApps,
+    required TResult Function(String query) search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getApps,
+    TResult Function(String query)? search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getApps,
+    TResult Function(String query)? search,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetAppsEvent value) getApps,
+    required TResult Function(SearchEvent value) search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getApps,
+    required TResult Function(String query) search,
   }) {
     return getApps();
   }
@@ -114,6 +121,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getApps,
+    TResult Function(String query)? search,
   }) {
     return getApps?.call();
   }
@@ -122,6 +130,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getApps,
+    TResult Function(String query)? search,
     required TResult orElse(),
   }) {
     if (getApps != null) {
@@ -134,6 +143,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetAppsEvent value) getApps,
+    required TResult Function(SearchEvent value) search,
   }) {
     return getApps(this);
   }
@@ -142,6 +152,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
   }) {
     return getApps?.call(this);
   }
@@ -150,6 +161,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
     required TResult orElse(),
   }) {
     if (getApps != null) {
@@ -161,6 +173,139 @@ class _$GetAppsEvent implements GetAppsEvent {
 
 abstract class GetAppsEvent implements AppsEvent {
   const factory GetAppsEvent() = _$GetAppsEvent;
+}
+
+/// @nodoc
+abstract class $SearchEventCopyWith<$Res> {
+  factory $SearchEventCopyWith(
+          SearchEvent value, $Res Function(SearchEvent) then) =
+      _$SearchEventCopyWithImpl<$Res>;
+  $Res call({String query});
+}
+
+/// @nodoc
+class _$SearchEventCopyWithImpl<$Res> extends _$AppsEventCopyWithImpl<$Res>
+    implements $SearchEventCopyWith<$Res> {
+  _$SearchEventCopyWithImpl(
+      SearchEvent _value, $Res Function(SearchEvent) _then)
+      : super(_value, (v) => _then(v as SearchEvent));
+
+  @override
+  SearchEvent get _value => super._value as SearchEvent;
+
+  @override
+  $Res call({
+    Object? query = freezed,
+  }) {
+    return _then(SearchEvent(
+      query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchEvent implements SearchEvent {
+  const _$SearchEvent(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'AppsEvent.search(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SearchEvent &&
+            const DeepCollectionEquality().equals(other.query, query));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(query));
+
+  @JsonKey(ignore: true)
+  @override
+  $SearchEventCopyWith<SearchEvent> get copyWith =>
+      _$SearchEventCopyWithImpl<SearchEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getApps,
+    required TResult Function(String query) search,
+  }) {
+    return search(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getApps,
+    TResult Function(String query)? search,
+  }) {
+    return search?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getApps,
+    TResult Function(String query)? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAppsEvent value) getApps,
+    required TResult Function(SearchEvent value) search,
+  }) {
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
+  }) {
+    return search?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchEvent implements AppsEvent {
+  const factory SearchEvent(final String query) = _$SearchEvent;
+
+  String get query => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SearchEventCopyWith<SearchEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
