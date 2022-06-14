@@ -6,5 +6,8 @@
     "installedApps": "Установленные приложения",
     "systemApps": "Системные приложения",
     "megabytes": "Мб",
-    "searchHint": "Поиск..."
+    "searchHint": "Поиск...",
+    "sortByName": "Сортировать по имени",
+    "sortBySize": "Сортировать по размеру",
+    "sortByDate": "Сортировать по дате"
 }

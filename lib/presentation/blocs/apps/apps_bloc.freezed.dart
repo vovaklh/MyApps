@@ -20,18 +20,21 @@ mixin _$AppsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getApps,
     required TResult Function(String query) search,
+    required TResult Function(SortMethod sortMethod) sort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getApps,
     TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getApps,
     TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AppsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetAppsEvent value) getApps,
     required TResult Function(SearchEvent value) search,
+    required TResult Function(SortEvent value) sort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getApps,
     required TResult Function(String query) search,
+    required TResult Function(SortMethod sortMethod) sort,
   }) {
     return getApps();
   }
@@ -122,6 +129,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getApps,
     TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
   }) {
     return getApps?.call();
   }
@@ -131,6 +139,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getApps,
     TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
     required TResult orElse(),
   }) {
     if (getApps != null) {
@@ -144,6 +153,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetAppsEvent value) getApps,
     required TResult Function(SearchEvent value) search,
+    required TResult Function(SortEvent value) sort,
   }) {
     return getApps(this);
   }
@@ -153,6 +163,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
   }) {
     return getApps?.call(this);
   }
@@ -162,6 +173,7 @@ class _$GetAppsEvent implements GetAppsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
     required TResult orElse(),
   }) {
     if (getApps != null) {
@@ -241,6 +253,7 @@ class _$SearchEvent implements SearchEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getApps,
     required TResult Function(String query) search,
+    required TResult Function(SortMethod sortMethod) sort,
   }) {
     return search(query);
   }
@@ -250,6 +263,7 @@ class _$SearchEvent implements SearchEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getApps,
     TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
   }) {
     return search?.call(query);
   }
@@ -259,6 +273,7 @@ class _$SearchEvent implements SearchEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getApps,
     TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -272,6 +287,7 @@ class _$SearchEvent implements SearchEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetAppsEvent value) getApps,
     required TResult Function(SearchEvent value) search,
+    required TResult Function(SortEvent value) sort,
   }) {
     return search(this);
   }
@@ -281,6 +297,7 @@ class _$SearchEvent implements SearchEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
   }) {
     return search?.call(this);
   }
@@ -290,6 +307,7 @@ class _$SearchEvent implements SearchEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -305,6 +323,144 @@ abstract class SearchEvent implements AppsEvent {
   String get query => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchEventCopyWith<SearchEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SortEventCopyWith<$Res> {
+  factory $SortEventCopyWith(SortEvent value, $Res Function(SortEvent) then) =
+      _$SortEventCopyWithImpl<$Res>;
+  $Res call({SortMethod sortMethod});
+}
+
+/// @nodoc
+class _$SortEventCopyWithImpl<$Res> extends _$AppsEventCopyWithImpl<$Res>
+    implements $SortEventCopyWith<$Res> {
+  _$SortEventCopyWithImpl(SortEvent _value, $Res Function(SortEvent) _then)
+      : super(_value, (v) => _then(v as SortEvent));
+
+  @override
+  SortEvent get _value => super._value as SortEvent;
+
+  @override
+  $Res call({
+    Object? sortMethod = freezed,
+  }) {
+    return _then(SortEvent(
+      sortMethod == freezed
+          ? _value.sortMethod
+          : sortMethod // ignore: cast_nullable_to_non_nullable
+              as SortMethod,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SortEvent implements SortEvent {
+  const _$SortEvent(this.sortMethod);
+
+  @override
+  final SortMethod sortMethod;
+
+  @override
+  String toString() {
+    return 'AppsEvent.sort(sortMethod: $sortMethod)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SortEvent &&
+            const DeepCollectionEquality()
+                .equals(other.sortMethod, sortMethod));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(sortMethod));
+
+  @JsonKey(ignore: true)
+  @override
+  $SortEventCopyWith<SortEvent> get copyWith =>
+      _$SortEventCopyWithImpl<SortEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getApps,
+    required TResult Function(String query) search,
+    required TResult Function(SortMethod sortMethod) sort,
+  }) {
+    return sort(sortMethod);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getApps,
+    TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
+  }) {
+    return sort?.call(sortMethod);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getApps,
+    TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
+    required TResult orElse(),
+  }) {
+    if (sort != null) {
+      return sort(sortMethod);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAppsEvent value) getApps,
+    required TResult Function(SearchEvent value) search,
+    required TResult Function(SortEvent value) sort,
+  }) {
+    return sort(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
+  }) {
+    return sort?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
+    required TResult orElse(),
+  }) {
+    if (sort != null) {
+      return sort(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SortEvent implements AppsEvent {
+  const factory SortEvent(final SortMethod sortMethod) = _$SortEvent;
+
+  SortMethod get sortMethod => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SortEventCopyWith<SortEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
