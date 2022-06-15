@@ -6,5 +6,8 @@
     "installedApps": "Installed Apps",
     "systemApps": "System Apps",
     "megabytes": "MB",
-    "searchHint": "Search..."
+    "searchHint": "Search...",
+    "sortByName": "Sort by name",
+    "sortBySize": "Sort by size",
+    "sortByDate": "Sort by date"
 }

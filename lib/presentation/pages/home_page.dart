@@ -5,6 +5,7 @@ import 'package:my_apps/core/di/locator.dart';
 import 'package:my_apps/core/utils/extensions/build_context_ext.dart';
 import 'package:my_apps/domain/wrappers/application_wrapper.dart';
 import 'package:my_apps/presentation/blocs/apps/apps_bloc.dart';
+import 'package:my_apps/presentation/sort/sort_method.dart';
 import 'package:my_apps/presentation/widgets/app_widget.dart';
 import 'package:my_apps/presentation/widgets/loader.dart';
 
@@ -38,6 +39,8 @@ class _HomePageState extends State<HomePage> {
     });
     _bloc.add(const GetAppsEvent());
   }
+
+  void _onSort(SortMethod sortMethod) => _bloc.add(SortEvent(sortMethod));
 
   @override
   Widget build(BuildContext context) {
@@ -92,15 +95,33 @@ class _HomePageState extends State<HomePage> {
           icon: const Icon(Icons.search),
           onPressed: _onSearchOpen,
         ),
-      IconButton(
-        icon: const Icon(Icons.sort),
-        onPressed: () {},
-      ),
+      _buildPopupMenu(),
       IconButton(
         icon: const Icon(Icons.settings),
         onPressed: () {},
       ),
     ];
+  }
+
+  Widget _buildPopupMenu() {
+    return PopupMenuButton<SortMethod>(
+      icon: const Icon(Icons.sort),
+      onSelected: _onSort,
+      itemBuilder: (_) => [
+        PopupMenuItem(
+          value: SortMethod.name,
+          child: Text(context.localizations.sortByName),
+        ),
+        PopupMenuItem(
+          value: SortMethod.size,
+          child: Text(context.localizations.sortBySize),
+        ),
+        PopupMenuItem(
+          value: SortMethod.installationDate,
+          child: Text(context.localizations.sortByDate),
+        ),
+      ],
+    );
   }
 
   PreferredSizeWidget _buildBottom() {
