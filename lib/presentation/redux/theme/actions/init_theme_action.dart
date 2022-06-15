@@ -7,7 +7,7 @@ import 'package:my_apps/presentation/redux/app_state.dart';
 class InitThemeAction extends ReduxAction<AppState> {
   @override
   AppState reduce() {
-    final themeMode = locator<SharedPrefs>().getThemeMode() ?? ThemeMode.system;
+    final themeMode = locator<SharedPrefs>().getThemeMode() ?? ThemeMode.light;
     return state.copyWith(themeMode: themeMode);
   }
 }
