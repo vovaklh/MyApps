@@ -85,7 +85,7 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
   static final dark = ThemeTextStyles(
     appBarTitle: headline1.copyWith(
       color: AppColors.white,
-      fontSize: 24,
+      fontSize: 20,
       fontWeight: FontWeight.w600,
     ),
     appTitle: headline1.copyWith(

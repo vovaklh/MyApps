@@ -5,6 +5,7 @@ import 'package:my_apps/core/di/locator.dart';
 import 'package:my_apps/core/utils/extensions/build_context_ext.dart';
 import 'package:my_apps/domain/wrappers/application_wrapper.dart';
 import 'package:my_apps/presentation/blocs/apps/apps_bloc.dart';
+import 'package:my_apps/presentation/dialogs/settings_dialog.dart';
 import 'package:my_apps/presentation/sort/sort_method.dart';
 import 'package:my_apps/presentation/widgets/app_widget.dart';
 import 'package:my_apps/presentation/widgets/loader.dart';
@@ -41,6 +42,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onSort(SortMethod sortMethod) => _bloc.add(SortEvent(sortMethod));
+
+  void _showSettingsDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => const SettingsDialog(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +106,7 @@ class _HomePageState extends State<HomePage> {
       _buildPopupMenu(),
       IconButton(
         icon: const Icon(Icons.settings),
-        onPressed: () {},
+        onPressed: _showSettingsDialog,
       ),
     ];
   }
@@ -126,7 +134,7 @@ class _HomePageState extends State<HomePage> {
 
   PreferredSizeWidget _buildBottom() {
     return TabBar(
-      isScrollable: true,
+      isScrollable: false,
       labelPadding: const EdgeInsets.symmetric(horizontal: 20),
       labelColor: context.color.selectedLabel,
       unselectedLabelColor: context.color.unselectedLabel,
@@ -137,14 +145,24 @@ class _HomePageState extends State<HomePage> {
           children: [
             const Icon(Icons.download_rounded),
             const SizedBox(width: 10),
-            Text(context.localizations.installedApps.toUpperCase()),
+            Flexible(
+              child: Text(
+                context.localizations.installedApps.toUpperCase(),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
         Row(
           children: [
             const Icon(Icons.apps),
             const SizedBox(width: 10),
-            Text(context.localizations.systemApps.toUpperCase()),
+            Flexible(
+              child: Text(
+                context.localizations.systemApps.toUpperCase(),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
       ],

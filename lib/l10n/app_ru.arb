@@ -9,5 +9,10 @@
     "searchHint": "Поиск...",
     "sortByName": "Сортировать по имени",
     "sortBySize": "Сортировать по размеру",
-    "sortByDate": "Сортировать по дате"
+    "sortByDate": "Сортировать по дате",
+    "english": "Английский",
+    "russian": "Русский",
+    "settings": "Настройки",
+    "darkMode": "Темный режим",
+    "language": "Язык"
 }
