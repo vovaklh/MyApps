@@ -21,6 +21,7 @@ mixin _$AppsEvent {
     required TResult Function() getApps,
     required TResult Function(String query) search,
     required TResult Function(SortMethod sortMethod) sort,
+    required TResult Function(String packageName) uninstalled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$AppsEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$AppsEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$AppsEvent {
     required TResult Function(GetAppsEvent value) getApps,
     required TResult Function(SearchEvent value) search,
     required TResult Function(SortEvent value) sort,
+    required TResult Function(AppUninstalledEvent value) uninstalled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$AppsEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$AppsEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$GetAppsEvent implements GetAppsEvent {
     required TResult Function() getApps,
     required TResult Function(String query) search,
     required TResult Function(SortMethod sortMethod) sort,
+    required TResult Function(String packageName) uninstalled,
   }) {
     return getApps();
   }
@@ -130,6 +137,7 @@ class _$GetAppsEvent implements GetAppsEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
   }) {
     return getApps?.call();
   }
@@ -140,6 +148,7 @@ class _$GetAppsEvent implements GetAppsEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
     required TResult orElse(),
   }) {
     if (getApps != null) {
@@ -154,6 +163,7 @@ class _$GetAppsEvent implements GetAppsEvent {
     required TResult Function(GetAppsEvent value) getApps,
     required TResult Function(SearchEvent value) search,
     required TResult Function(SortEvent value) sort,
+    required TResult Function(AppUninstalledEvent value) uninstalled,
   }) {
     return getApps(this);
   }
@@ -164,6 +174,7 @@ class _$GetAppsEvent implements GetAppsEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
   }) {
     return getApps?.call(this);
   }
@@ -174,6 +185,7 @@ class _$GetAppsEvent implements GetAppsEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
     required TResult orElse(),
   }) {
     if (getApps != null) {
@@ -254,6 +266,7 @@ class _$SearchEvent implements SearchEvent {
     required TResult Function() getApps,
     required TResult Function(String query) search,
     required TResult Function(SortMethod sortMethod) sort,
+    required TResult Function(String packageName) uninstalled,
   }) {
     return search(query);
   }
@@ -264,6 +277,7 @@ class _$SearchEvent implements SearchEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
   }) {
     return search?.call(query);
   }
@@ -274,6 +288,7 @@ class _$SearchEvent implements SearchEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -288,6 +303,7 @@ class _$SearchEvent implements SearchEvent {
     required TResult Function(GetAppsEvent value) getApps,
     required TResult Function(SearchEvent value) search,
     required TResult Function(SortEvent value) sort,
+    required TResult Function(AppUninstalledEvent value) uninstalled,
   }) {
     return search(this);
   }
@@ -298,6 +314,7 @@ class _$SearchEvent implements SearchEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
   }) {
     return search?.call(this);
   }
@@ -308,6 +325,7 @@ class _$SearchEvent implements SearchEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -392,6 +410,7 @@ class _$SortEvent implements SortEvent {
     required TResult Function() getApps,
     required TResult Function(String query) search,
     required TResult Function(SortMethod sortMethod) sort,
+    required TResult Function(String packageName) uninstalled,
   }) {
     return sort(sortMethod);
   }
@@ -402,6 +421,7 @@ class _$SortEvent implements SortEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
   }) {
     return sort?.call(sortMethod);
   }
@@ -412,6 +432,7 @@ class _$SortEvent implements SortEvent {
     TResult Function()? getApps,
     TResult Function(String query)? search,
     TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
     required TResult orElse(),
   }) {
     if (sort != null) {
@@ -426,6 +447,7 @@ class _$SortEvent implements SortEvent {
     required TResult Function(GetAppsEvent value) getApps,
     required TResult Function(SearchEvent value) search,
     required TResult Function(SortEvent value) sort,
+    required TResult Function(AppUninstalledEvent value) uninstalled,
   }) {
     return sort(this);
   }
@@ -436,6 +458,7 @@ class _$SortEvent implements SortEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
   }) {
     return sort?.call(this);
   }
@@ -446,6 +469,7 @@ class _$SortEvent implements SortEvent {
     TResult Function(GetAppsEvent value)? getApps,
     TResult Function(SearchEvent value)? search,
     TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
     required TResult orElse(),
   }) {
     if (sort != null) {
@@ -461,6 +485,154 @@ abstract class SortEvent implements AppsEvent {
   SortMethod get sortMethod => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SortEventCopyWith<SortEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AppUninstalledEventCopyWith<$Res> {
+  factory $AppUninstalledEventCopyWith(
+          AppUninstalledEvent value, $Res Function(AppUninstalledEvent) then) =
+      _$AppUninstalledEventCopyWithImpl<$Res>;
+  $Res call({String packageName});
+}
+
+/// @nodoc
+class _$AppUninstalledEventCopyWithImpl<$Res>
+    extends _$AppsEventCopyWithImpl<$Res>
+    implements $AppUninstalledEventCopyWith<$Res> {
+  _$AppUninstalledEventCopyWithImpl(
+      AppUninstalledEvent _value, $Res Function(AppUninstalledEvent) _then)
+      : super(_value, (v) => _then(v as AppUninstalledEvent));
+
+  @override
+  AppUninstalledEvent get _value => super._value as AppUninstalledEvent;
+
+  @override
+  $Res call({
+    Object? packageName = freezed,
+  }) {
+    return _then(AppUninstalledEvent(
+      packageName == freezed
+          ? _value.packageName
+          : packageName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AppUninstalledEvent implements AppUninstalledEvent {
+  const _$AppUninstalledEvent(this.packageName);
+
+  @override
+  final String packageName;
+
+  @override
+  String toString() {
+    return 'AppsEvent.uninstalled(packageName: $packageName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AppUninstalledEvent &&
+            const DeepCollectionEquality()
+                .equals(other.packageName, packageName));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(packageName));
+
+  @JsonKey(ignore: true)
+  @override
+  $AppUninstalledEventCopyWith<AppUninstalledEvent> get copyWith =>
+      _$AppUninstalledEventCopyWithImpl<AppUninstalledEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getApps,
+    required TResult Function(String query) search,
+    required TResult Function(SortMethod sortMethod) sort,
+    required TResult Function(String packageName) uninstalled,
+  }) {
+    return uninstalled(packageName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getApps,
+    TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
+  }) {
+    return uninstalled?.call(packageName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getApps,
+    TResult Function(String query)? search,
+    TResult Function(SortMethod sortMethod)? sort,
+    TResult Function(String packageName)? uninstalled,
+    required TResult orElse(),
+  }) {
+    if (uninstalled != null) {
+      return uninstalled(packageName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAppsEvent value) getApps,
+    required TResult Function(SearchEvent value) search,
+    required TResult Function(SortEvent value) sort,
+    required TResult Function(AppUninstalledEvent value) uninstalled,
+  }) {
+    return uninstalled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
+  }) {
+    return uninstalled?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAppsEvent value)? getApps,
+    TResult Function(SearchEvent value)? search,
+    TResult Function(SortEvent value)? sort,
+    TResult Function(AppUninstalledEvent value)? uninstalled,
+    required TResult orElse(),
+  }) {
+    if (uninstalled != null) {
+      return uninstalled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppUninstalledEvent implements AppsEvent {
+  const factory AppUninstalledEvent(final String packageName) =
+      _$AppUninstalledEvent;
+
+  String get packageName => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AppUninstalledEventCopyWith<AppUninstalledEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
