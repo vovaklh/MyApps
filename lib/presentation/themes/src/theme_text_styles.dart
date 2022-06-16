@@ -55,56 +55,56 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     );
   }
 
-  static final light = ThemeTextStyles(
-    appBarTitle: headline1.copyWith(
-      color: AppColors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.w600,
-    ),
-    appTitle: headline1.copyWith(
-      color: AppColors.darkerGrey,
-      fontWeight: FontWeight.w700,
-    ),
-    appDescription: headline3.copyWith(
-      color: AppColors.darkerGrey,
-      fontWeight: FontWeight.w500,
-    ),
-    labelStyle: headline1.copyWith(
-      fontWeight: FontWeight.w500,
-    ),
-    searchHint: headline1.copyWith(
-      color: AppColors.white,
-      fontSize: 18,
-    ),
-    searchInput: headline1.copyWith(
-      fontSize: 18,
-    ),
-  );
+  static get light => ThemeTextStyles(
+        appBarTitle: headline1.copyWith(
+          color: AppColors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
+        appTitle: headline1.copyWith(
+          color: AppColors.darkerGrey,
+          fontWeight: FontWeight.w700,
+        ),
+        appDescription: headline3.copyWith(
+          color: AppColors.darkerGrey,
+          fontWeight: FontWeight.w500,
+        ),
+        labelStyle: headline1.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        searchHint: headline1.copyWith(
+          color: AppColors.white,
+          fontSize: 18,
+        ),
+        searchInput: headline1.copyWith(
+          fontSize: 18,
+        ),
+      );
 
   // TODO : Change later
-  static final dark = ThemeTextStyles(
-    appBarTitle: headline1.copyWith(
-      color: AppColors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.w600,
-    ),
-    appTitle: headline1.copyWith(
-      color: AppColors.darkerGrey,
-      fontWeight: FontWeight.w700,
-    ),
-    appDescription: headline3.copyWith(
-      color: AppColors.darkerGrey,
-      fontWeight: FontWeight.w500,
-    ),
-    labelStyle: headline1.copyWith(
-      fontWeight: FontWeight.w500,
-    ),
-    searchHint: headline1.copyWith(
-      color: AppColors.white,
-      fontSize: 18,
-    ),
-    searchInput: headline1.copyWith(
-      fontSize: 18,
-    ),
-  );
+  static get dark => ThemeTextStyles(
+        appBarTitle: headline1.copyWith(
+          color: AppColors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
+        appTitle: headline1.copyWith(
+          color: AppColors.lighterGrey,
+          fontWeight: FontWeight.w700,
+        ),
+        appDescription: headline3.copyWith(
+          color: AppColors.lightGrey,
+          fontWeight: FontWeight.w500,
+        ),
+        labelStyle: headline1.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        searchHint: headline1.copyWith(
+          color: AppColors.white,
+          fontSize: 18,
+        ),
+        searchInput: headline1.copyWith(
+          fontSize: 18,
+        ),
+      );
 }

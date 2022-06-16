@@ -197,6 +197,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildApps(List<ApplicationWrapper> wrappers) {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      physics: const BouncingScrollPhysics(),
       itemBuilder: (_, int index) => AppWidget(
         wrapper: wrappers[index],
         onTap: (wrapper) => DeviceApps.openApp(wrapper.application.packageName),
