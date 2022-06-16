@@ -53,20 +53,20 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     );
   }
 
-  static final light = ThemeColors(
-    appContainerBackground: AppColors.white,
-    appContainerShadow: AppColors.grey.withOpacity(0.5),
-    selectedLabel: AppColors.darkestGrey,
-    unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
-    coursorColor: AppColors.pink,
-  );
+  static get light => ThemeColors(
+        appContainerBackground: AppColors.white,
+        appContainerShadow: AppColors.grey.withOpacity(0.5),
+        selectedLabel: AppColors.darkestGrey,
+        unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
+        coursorColor: AppColors.pink,
+      );
 
   // TODO : Change later
-  static final dark = ThemeColors(
-    appContainerBackground: AppColors.white,
-    appContainerShadow: AppColors.grey.withOpacity(0.5),
-    selectedLabel: AppColors.darkestGrey,
-    unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
-    coursorColor: AppColors.pink,
-  );
+  static get dark => ThemeColors(
+        appContainerBackground: AppColors.lightDark,
+        appContainerShadow: AppColors.darkerGrey.withOpacity(0.2),
+        selectedLabel: AppColors.darkestGrey,
+        unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
+        coursorColor: AppColors.pink,
+      );
 }
