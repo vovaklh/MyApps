@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.my_apps">
+    package="com.vovaklh.my_apps">
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
     <application
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-        android:label="my_apps">
+        android:icon="@mipmap/launcher_icon"
+        android:label="MyApps">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
