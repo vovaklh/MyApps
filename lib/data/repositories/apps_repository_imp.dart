@@ -8,7 +8,8 @@ class AppsRepositoryImp implements AppsRepository {
   final List<ApplicationWrapper> _installedApps = [];
   final List<ApplicationWrapper> _systemApps = [];
 
-  final Stream<ApplicationEvent> appChangesStream =
+  @override
+  Stream<ApplicationEvent> get appChangesStream =>
       DeviceApps.listenToAppsChanges();
 
   @override
@@ -48,12 +49,14 @@ class AppsRepositoryImp implements AppsRepository {
     return _installedApps;
   }
 
-  Future<void> reload() async {
-    _installedApps.clear();
-    _systemApps.clear();
-
-    await getSystemApps();
-    await getSystemApps();
+  @override
+  void onAppUninstalled(String packageName) {
+    _installedApps.removeWhere(
+      (wrapper) => wrapper.application.packageName == packageName,
+    );
+    _systemApps.removeWhere(
+      (wrapper) => wrapper.application.packageName == packageName,
+    );
   }
 }
 
