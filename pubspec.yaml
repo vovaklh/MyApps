@@ -20,6 +20,7 @@ dependencies:
   injectable: ^1.5.3
   device_apps: ^2.2.0
   flutter_bloc: ^8.0.1
+  firebase_core: ^1.18.0
 
 dev_dependencies:
   flutter_test:
