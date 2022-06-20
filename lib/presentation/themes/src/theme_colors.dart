@@ -6,6 +6,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
   final Color selectedLabel;
   final Color unselectedLabel;
   final Color coursorColor;
+  final Color micIcon;
 
   const ThemeColors({
     required this.appContainerBackground,
@@ -13,6 +14,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     required this.selectedLabel,
     required this.unselectedLabel,
     required this.coursorColor,
+    required this.micIcon,
   });
 
   @override
@@ -22,6 +24,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? selectedLabel,
     Color? unselectedLabel,
     Color? coursorColor,
+    Color? micIcon,
   }) {
     return ThemeColors(
       appContainerBackground:
@@ -30,6 +33,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       selectedLabel: selectedLabel ?? this.selectedLabel,
       unselectedLabel: unselectedLabel ?? this.unselectedLabel,
       coursorColor: coursorColor ?? this.coursorColor,
+      micIcon: micIcon ?? this.micIcon,
     );
   }
 
@@ -50,6 +54,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       selectedLabel: Color.lerp(selectedLabel, other.selectedLabel, t)!,
       unselectedLabel: Color.lerp(unselectedLabel, other.unselectedLabel, t)!,
       coursorColor: Color.lerp(coursorColor, other.coursorColor, t)!,
+      micIcon: Color.lerp(micIcon, other.micIcon, t)!,
     );
   }
 
@@ -59,6 +64,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
         selectedLabel: AppColors.darkestGrey,
         unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
         coursorColor: AppColors.pink,
+        micIcon: AppColors.white,
       );
 
   // TODO : Change later
@@ -68,5 +74,6 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
         selectedLabel: AppColors.darkestGrey,
         unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
         coursorColor: AppColors.pink,
+        micIcon: AppColors.white,
       );
 }

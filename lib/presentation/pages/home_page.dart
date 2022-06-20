@@ -9,6 +9,7 @@ import 'package:my_apps/presentation/dialogs/settings_dialog.dart';
 import 'package:my_apps/presentation/sort/sort_method.dart';
 import 'package:my_apps/presentation/widgets/app_widget.dart';
 import 'package:my_apps/presentation/widgets/loader.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,15 +23,26 @@ class _HomePageState extends State<HomePage> {
 
   final _bloc = locator<AppsBloc>();
 
+  late final stt.SpeechToText _speech;
+  late final TextEditingController _controller;
+
+  bool _isListening = false;
   bool _isSearching = false;
 
   @override
   void initState() {
     super.initState();
     _bloc.add(const GetAppsEvent());
+    _speech = stt.SpeechToText();
+    _controller = TextEditingController();
   }
 
-  void _onSearch(String query) => _bloc.add(SearchEvent(query));
+  @override
+  void dispose() {
+    _speech.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
 
   void _onSearchOpen() => setState(() => _isSearching = true);
 
@@ -38,6 +50,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _isSearching = false;
     });
+    _controller.clear();
     _bloc.add(const GetAppsEvent());
   }
 
@@ -48,6 +61,34 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (context) => const SettingsDialog(),
     );
+  }
+
+  void _listen() async {
+    if (!_isListening) {
+      bool available = await _speech.initialize(
+        debugLogging: true,
+        options: [stt.SpeechToText.androidIntentLookup],
+      );
+      if (available) {
+        _isListening = true;
+        _speech.listen(
+          onResult: (result) {
+            if (result.hasConfidenceRating && result.confidence > 0) {
+              _controller.text = result.recognizedWords;
+              _controller.selection = TextSelection.fromPosition(
+                TextPosition(offset: _controller.text.length),
+              );
+              _bloc.add(SearchEvent(result.recognizedWords));
+              _speech.stop();
+              _isListening = false;
+            }
+          },
+        );
+      }
+    } else {
+      _isListening = false;
+      _speech.stop();
+    }
   }
 
   @override
@@ -79,15 +120,21 @@ class _HomePageState extends State<HomePage> {
   Widget _buildTitle() {
     if (_isSearching) {
       return TextField(
+        controller: _controller,
         decoration: InputDecoration(
           hintText: context.localizations.searchHint,
           hintStyle: context.text.searchHint,
           border: InputBorder.none,
+          suffixIcon: IconButton(
+            onPressed: _listen,
+            icon: const Icon(Icons.mic),
+            color: context.color.micIcon,
+          ),
         ),
         autofocus: true,
         cursorColor: context.color.coursorColor,
         style: context.text.searchInput,
-        onChanged: _onSearch,
+        onChanged: (query) => _bloc.add(SearchEvent(query)),
       );
     }
     return Text(
