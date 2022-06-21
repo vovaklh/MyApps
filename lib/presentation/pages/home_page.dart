@@ -139,7 +139,6 @@ class _HomePageState extends State<HomePage> {
     }
     return Text(
       context.localizations.myApps,
-      style: context.text.appBarTitle,
     );
   }
 

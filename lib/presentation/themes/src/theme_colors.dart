@@ -7,6 +7,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
   final Color unselectedLabel;
   final Color coursorColor;
   final Color micIcon;
+  final Color settingsDialogLanguage;
 
   const ThemeColors({
     required this.appContainerBackground,
@@ -15,6 +16,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     required this.unselectedLabel,
     required this.coursorColor,
     required this.micIcon,
+    required this.settingsDialogLanguage,
   });
 
   @override
@@ -25,6 +27,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? unselectedLabel,
     Color? coursorColor,
     Color? micIcon,
+    Color? settingsDialogLanguage,
   }) {
     return ThemeColors(
       appContainerBackground:
@@ -34,6 +37,8 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       unselectedLabel: unselectedLabel ?? this.unselectedLabel,
       coursorColor: coursorColor ?? this.coursorColor,
       micIcon: micIcon ?? this.micIcon,
+      settingsDialogLanguage:
+          settingsDialogLanguage ?? this.settingsDialogLanguage,
     );
   }
 
@@ -55,6 +60,8 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       unselectedLabel: Color.lerp(unselectedLabel, other.unselectedLabel, t)!,
       coursorColor: Color.lerp(coursorColor, other.coursorColor, t)!,
       micIcon: Color.lerp(micIcon, other.micIcon, t)!,
+      settingsDialogLanguage:
+          Color.lerp(settingsDialogLanguage, other.settingsDialogLanguage, t)!,
     );
   }
 
@@ -64,16 +71,17 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
         selectedLabel: AppColors.darkestGrey,
         unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
         coursorColor: AppColors.pink,
-        micIcon: AppColors.white,
+        micIcon: AppColors.lightGrey,
+        settingsDialogLanguage: AppColors.white,
       );
 
-  // TODO : Change later
   static get dark => ThemeColors(
         appContainerBackground: AppColors.lightDark,
         appContainerShadow: AppColors.darkerGrey.withOpacity(0.2),
         selectedLabel: AppColors.darkestGrey,
         unselectedLabel: AppColors.darkestGrey.withOpacity(0.7),
         coursorColor: AppColors.pink,
-        micIcon: AppColors.white,
+        micIcon: AppColors.lightGrey,
+        settingsDialogLanguage: AppColors.lighterDark,
       );
 }

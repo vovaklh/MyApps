@@ -8,6 +8,7 @@ analyzer:
     - lib/**/**.g.dart
     - lib/**/**.freezed.dart
     - test/**
+    - lib/presentation/themes/**
   errors:
     invalid_annotation_target: ignore
 
