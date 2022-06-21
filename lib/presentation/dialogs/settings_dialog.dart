@@ -64,6 +64,8 @@ class _SettingsDialogState extends State<SettingsDialog> {
         Text(context.localizations.language),
         DropdownButton<AppLocale>(
           value: locale,
+          dropdownColor: context.color.settingsDialogLanguage,
+          style: context.text.settingsDialogLanguage,
           onChanged: _onLanguageChanged,
           items: AppLocale.values
               .map((locale) => DropdownMenuItem(
