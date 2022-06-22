@@ -1,16 +1,5 @@
-# device_apps
+# MyApps
 
-A new Flutter project.
+Sometimes it is hard to find the concrete app on your phone, especially if you have many installed of them. The MyApps solves this problem! You can search your app just by typing its name. Or you can use voice search! The app supports dark mode and English/Russian languages. It is possible to filter apps by its name, size and date.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Result](demonstration/my_apps.gif)
